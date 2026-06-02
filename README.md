@@ -31,7 +31,8 @@ P(v\,k \mid k_p)\,
 
 where `K(u,v)` is the second-order kernel, `Pol(u,v)` is the polarisation factor, and `P(k | kp)` is the primordial power spectrum (PPS), modelled here as a log-normal peaked at `kp`.
 
-The change of variables `(s,t) → (u,v)` maps a triangular integration domain onto a rectangle.
+**Note:** The kernel and polarisation functions are written in terms of `(u,v)`, following the standard notation used in the SGWB literature. However, the numerical integration is performed over the transformed variables `(s,t)`. This change of variables maps the original triangular integration domain in `(u,v)` onto a rectangular domain in `(s,t)`, which is more convenient for Monte Carlo sampling and adaptive integration.
+
 
 **Key distinction:** `kp` is a fixed physical scale (the peak of the PPS) and does not change between runs. `k` is the wavenumber at which Ω is evaluated. The full spectrum is obtained by computing one value of Ω(k) per job.
 
