@@ -2,11 +2,17 @@
 Gravitational waves produced in the early universe and their possible detection would bring key insights into early universe dynamics such as inflation. This project computes the stochastic gravitational wave background (SGWB) energy density spectrum Ω(k) using a hybrid MCMC + adaptive Monte Carlo pipeline. .
 
 
+## Notes
+
 **Note:** This implementation computes only the **Gaussian contribution** to the stochastic gravitational wave background (SGWB), which is the simplest term in the calculation. Additional non-Gaussian contributions may be incorporated in future versions as the associated research is completed and published.
 
 Each evaluation of Ω(k) is independent, with no communication required between different values of `k`. Consequently, this program computes Ω(k) for a single value of `k` per run.
 
 To obtain the full SGWB spectrum, the calculation must be repeated over a range of `k` values. In practice, this is typically done either by looping over an array of `k` values on a single machine or by distributing individual `k` values across multiple nodes on a computing cluster.
+
+**Further Note:** For a two-dimensional numerical integration problem such as the Gaussian term presented here, `vegas` alone is often sufficient and the use of `emcee` is not strictly necessary. The hybrid `emcee` + `vegas` approach is included primarily as a demonstration of the workflow, since its advantages become more significant for higher-dimensional integrals (e.g. dimensions greater than four), where locating and efficiently sampling narrow high-weight regions becomes increasingly challenging.
+
+The higher-dimensional non-Gaussian contributions that motivate this approach are not included in the present release, as they are associated with ongoing research and future publications.
 
 
 ## Physics
