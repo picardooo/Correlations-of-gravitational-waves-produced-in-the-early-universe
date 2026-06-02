@@ -64,20 +64,7 @@ Integration is then refined iteratively until the relative uncertainty
 
 falls below 0.1%.
 
-## Cluster Usage
-
-Each evaluation of Ω(k) is independent. There is no communication between different values of `k`.
-
-On a cluster, each node receives a single value of `k` as an argument and writes its result to a file. The full spectrum is assembled afterwards by collecting all outputs.
-
-```bash
-# Example SLURM array job (one k per task)
-#SBATCH --array=0-199
-
-python spectrum.py --k ${K_VALUES[$SLURM_ARRAY_TASK_ID]}
-```
-
-## Usage (Single k)
+## Usage 
 
 Install dependencies:
 
