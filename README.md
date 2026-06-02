@@ -1,8 +1,13 @@
-# Correlations-of-gravitational-waves-produced-in-the-early-universe
-Gravitational waves produced in the early universe and their possible detection would bring key insights into early universe dynamics such as inflation. This project uses MCMC methods to explore the integrand parameter space and the VEGAS Monte Carlo integration package to efficiently evaluate the spectrum.
-# Gravitational Wave Power Spectrum
+# Correlations of gravitational waves produced in the early universe
+Gravitational waves produced in the early universe and their possible detection would bring key insights into early universe dynamics such as inflation. This project computes the stochastic gravitational wave background (SGWB) energy density spectrum Ω(k) using a hybrid MCMC + adaptive Monte Carlo pipeline. .
 
-Computes the stochastic gravitational wave background (SGWB) energy density spectrum Ω(k) using a hybrid MCMC + adaptive Monte Carlo pipeline.
+
+**Note:** This implementation computes only the **Gaussian contribution** to the stochastic gravitational wave background (SGWB), which is the simplest term in the calculation. Additional non-Gaussian contributions may be incorporated in future versions as the associated research is completed and published.
+
+Each evaluation of Ω(k) is independent, with no communication required between different values of `k`. Consequently, this program computes Ω(k) for a single value of `k` per run.
+
+To obtain the full SGWB spectrum, the calculation must be repeated over a range of `k` values. In practice, this is typically done either by looping over an array of `k` values on a single machine or by distributing individual `k` values across multiple nodes on a computing cluster.
+
 
 ## Physics
 
